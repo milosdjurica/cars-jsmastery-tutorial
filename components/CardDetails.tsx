@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Fragment } from "react";
 
 import { Dialog, Transition } from "@headlessui/react";
+import { generateCardImageUrl } from "@/utils";
 
 interface CardDetailsProps {
   isOpen: boolean;
@@ -69,7 +70,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CardDetailsProps) => {
                     bg-pattern bg-cover bg-center"
                     >
                       <Image
-                        src="/hero.png"
+                        src={generateCardImageUrl(car)}
                         alt="car model"
                         fill
                         priority
@@ -82,7 +83,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CardDetailsProps) => {
                       bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCardImageUrl(car, '29')}
                           alt="car model"
                           fill
                           priority
@@ -94,7 +95,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CardDetailsProps) => {
                       bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCardImageUrl(car, "33")}
                           alt="car model"
                           fill
                           priority
@@ -106,7 +107,7 @@ const CardDetails = ({ isOpen, closeModal, car }: CardDetailsProps) => {
                       bg-primary-blue-100 rounded-lg"
                       >
                         <Image
-                          src="/hero.png"
+                          src={generateCardImageUrl(car, "13")}
                           alt="car model"
                           fill
                           priority
@@ -127,8 +128,12 @@ const CardDetails = ({ isOpen, closeModal, car }: CardDetailsProps) => {
                           gap-5 w-full text-right"
                           key={key}
                         >
-                          <h4 className="text-gray capitalize">{key.split('_').join(' ')}</h4>
-                          <p className="text-black-100 font-semibold">{value}</p>
+                          <h4 className="text-gray capitalize">
+                            {key.split("_").join(" ")}
+                          </h4>
+                          <p className="text-black-100 font-semibold">
+                            {value}
+                          </p>
                         </div>
                       ))}
                     </div>
